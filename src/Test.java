@@ -25,7 +25,8 @@ public class Test {
 			
 			Element e = new Element(key, value);
 			// Priority queue insertion
-			pq.insert(e);
+			if(!pq.insert(e)){
+				System.out.println("key "+ e.getKey()+" already exits");}
 		}
 		
 		while(pq.size() != 0) {

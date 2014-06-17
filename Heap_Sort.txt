@@ -4,8 +4,6 @@ tres
 siete
 6
 seis
-0
-cero
 5
 cinco
 1
@@ -16,3 +14,13 @@ cuatro
 dos
 8
 ocho
+16
+dieciseis
+3
+tress
+3
+ersas
+8
+ochodos
+0
+cero

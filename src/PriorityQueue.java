@@ -1,4 +1,6 @@
 
+
+
 public class PriorityQueue implements Tipo_PriorityQueue {
 	
 	private Tipo_Element[] entries;
@@ -13,36 +15,53 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	public int size() {
 		return size;
 	}
-
+	
+	/**
+	 * Tipo_Element get(): 
+	 * return an item with major priority , without remove it
+	 * @return 
+	 */
 	@Override
 	public Tipo_Element get() {
-		// Retorna o item com maior prioridade da fila F, sem removê-lo.
+		
 		return entries[0];
 	}
-
+	
+	/**
+	 * Tipo_Element remove(): 
+	 * remove a element with major priority 
+	 * calls another function heapify(int i) to rebuild the heap
+	 * @return 
+	 */
 	@Override
 	public Tipo_Element remove() {
-		// Remove e retorna o item com maior prioridade da fila F.
+		
 		if (size == 0) return null;
 		
 		size--;
 		Tipo_Element min = entries[0];
 		Tipo_Element last = entries[size];
-		entries[0] = last;
+		entries[0] = last;						
 		entries[size] = null;
 		heapify(0);
 		return min;
 	}
-
+	
+	/**
+	 * insert(Tipo_ELement e): 
+	 * insert an item "e" into priority queue and return true, otherwise
+	 * whether item  already exist with the same "key", return false
+	 * @return true or false.
+	 */
 	@Override
 	public boolean insert(Tipo_Element e) {
-		// Insere um item x na fila de prioridade F e retorna true, caso não exista item em
-		// F com a mesma chave de x. Se já existir item em F com a mesma chave de x, retorna false
+		
 		if (containsKey(e.getKey())) return false;
 		
 		entries[size] = e;
 		int i = size;
 		int parent = (i-1)/2;
+		//searching  position's "item e" 
 		while(i > 0 && entries[parent].getKey() > entries[i].getKey()) {
 			Tipo_Element tmp = entries[parent];
 			entries[parent] = entries[i];
@@ -54,20 +73,26 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 		return true;
 	}
 
+	/**
+	 * containsKey(int key): 
+	 * search if a "key" already exist on priority queue, return true,
+	 * otherwise return false
+	 * @return true or false.
+	 */
 	private boolean containsKey(int key) {
 		int i = 0;
 		while (i < size) {
 			if (entries[i].getKey() == key)
 				return true;
 			else {
-				int p = entries[i].getKey() > key ? 1 : 2;
-				i = i * 2 + p;
+				i ++;
 			}
 		}
 		return false;
 	}
 	
 	/**
+	 * heapify(int i):
 	 * The heapify method, which runs in O(log n) time, restores the heap
 	 * property after a deletion. 
 	 * @param i the index of the element to be checked
@@ -75,7 +100,7 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	private void heapify(int i) {
 		int iLeft  = 2 * i + 1; // index of the left child 
 		int iRight = 2 * i + 2; // index of the right child
-		int shortest;
+		int shortest;			// temporal value 
 		
 		if (iLeft < size && entries[iLeft].getKey() < entries[i].getKey()) 
 			shortest = iLeft;
@@ -89,7 +114,7 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 			Tipo_Element emin = entries[shortest];
 			entries[i] = emin;
 			entries[shortest] = emax;
-			heapify(shortest);
+			heapify(shortest);	//The recursive call "heapify" for index of  'shortest'
 		}		
 	}
 }
