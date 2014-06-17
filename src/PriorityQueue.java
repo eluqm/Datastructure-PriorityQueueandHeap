@@ -36,7 +36,7 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	@Override
 	public Tipo_Element remove() {
 		
-		if (size == 0) return null;
+		if (size == 0){System.out.println("Heap empty"); return null;}
 		
 		size--;
 		Tipo_Element min = entries[0];
