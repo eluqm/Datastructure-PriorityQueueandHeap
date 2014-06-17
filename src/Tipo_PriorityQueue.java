@@ -8,15 +8,17 @@ public interface Tipo_PriorityQueue {
 	public int size();
 	
 	/**
-	 * This method retrieves, but does not remove, the head of this
-	 * priority queue or null if this priority queue is empty.
+	 * This method retrieves, but does not remove, the element with 
+	 * the highest priority, i.e. the head of this priority queue or 
+	 * null if this priority queue is empty.
 	 * @return the head of this queue, or null if this queue is empty.
 	 */
 	public Tipo_Element get();
 	
 	/**
-	 * This method retrieves and removes the head of this priority queue, 
-	 * or returns null if this priority queue is empty.
+	 * This method retrieves and removes the element with the highest 
+	 * priority, i.e. the head of this priority queue, or returns null
+	 * if this priority queue is empty.
 	 * @return the head of this queue, or null if this queue is empty.
 	 */
 	public Tipo_Element remove();
