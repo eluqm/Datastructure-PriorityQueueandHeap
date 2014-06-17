@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class Test {
-
+	
 	public static void main(String[] args) {
 
 		File in = new File("Heap_Sort.txt");
@@ -18,19 +18,21 @@ public class Test {
 		PriorityQueue pq = new PriorityQueue();
 		
 		while(sc.hasNextLine()) {
-			String k = sc.nextLine();
+			// Read entry's key
+			int key = Integer.valueOf(sc.nextLine().trim());
+			// Read entry's value
 			String value = sc.nextLine();
 			
-			int key = Integer.valueOf(k);
-			Entry entry = new Entry(key, value);
-			pq.insert(entry);
+			Element e = new Element(key, value);
+			// Priority queue insertion
+			pq.insert(e);
 		}
 		
 		while(pq.size() != 0) {
-			Tipo_Entry e = pq.remove();
+			// Remove
+			Tipo_Element e = pq.remove();
 			System.out.println(e.getKey() + " " + e.getValue());
 		}
-
 	}
 
 }
