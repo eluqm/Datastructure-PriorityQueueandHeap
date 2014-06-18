@@ -6,7 +6,7 @@
 	
 	nome(s): 
 	
-	Paul Bustios Belizario			 nº: 	
+	Paul Augusto Bustios Belizario	 nº: 9060101
 	Edson Francisco Luque Mamani     nº: 9057024
  
  */
