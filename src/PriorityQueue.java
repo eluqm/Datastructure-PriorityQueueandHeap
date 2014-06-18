@@ -62,12 +62,10 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	 */
 	private boolean containsKey(int key) {
 		int i = 0;
-		while (i < size) {
+		for(i;i<size;i++)
+		{
 			if (entries[i].getKey() == key)
 				return true;
-			else {
-				i ++;
-			}
 		}
 		return false;
 	}
