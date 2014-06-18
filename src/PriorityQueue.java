@@ -15,29 +15,17 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	public int size() {
 		return size;
 	}
-	
-	/**
-	 * Tipo_Element get(): 
-	 * return an item with major priority , without remove it
-	 * @return 
-	 */
+
 	@Override
 	public Tipo_Element get() {
-		
 		return entries[0];
 	}
-	
-	/**
-	 * Tipo_Element remove(): 
-	 * remove a element with major priority 
-	 * calls another function heapify(int i) to rebuild the heap
-	 * @return 
-	 */
+
 	@Override
 	public Tipo_Element remove() {
 		
-		if (size == 0){System.out.println("Heap empty"); return null;}
-		
+		if (size == 0) return null;
+			
 		size--;
 		Tipo_Element min = entries[0];
 		Tipo_Element last = entries[size];
@@ -47,12 +35,6 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 		return min;
 	}
 	
-	/**
-	 * insert(Tipo_ELement e): 
-	 * insert an item "e" into priority queue and return true, otherwise
-	 * whether item  already exist with the same "key", return false
-	 * @return true or false.
-	 */
 	@Override
 	public boolean insert(Tipo_Element e) {
 		
@@ -74,10 +56,9 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	}
 
 	/**
-	 * containsKey(int key): 
-	 * search if a "key" already exist on priority queue, return true,
-	 * otherwise return false
-	 * @return true or false.
+	 * Search if a "key" already exist on priority queue, return true,
+	 * otherwise return false.
+	 * @return true if the specified key is found..
 	 */
 	private boolean containsKey(int key) {
 		int i = 0;
@@ -92,7 +73,6 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	}
 	
 	/**
-	 * heapify(int i):
 	 * The heapify method, which runs in O(log n) time, restores the heap
 	 * property after a deletion. 
 	 * @param i the index of the element to be checked
