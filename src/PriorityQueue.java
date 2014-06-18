@@ -61,8 +61,8 @@ public class PriorityQueue implements Tipo_PriorityQueue {
 	 * @return true if the specified key is found..
 	 */
 	private boolean containsKey(int key) {
-		int i = 0;
-		for(i;i<size;i++)
+		int i;
+		for(i=0;i<size;i++)
 		{
 			if (entries[i].getKey() == key)
 				return true;
